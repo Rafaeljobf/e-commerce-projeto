@@ -1,0 +1,8 @@
+/target/
+/.idea/
+/*.iml
+/out/
+*.mv.db
+*.trace.db
+.DS_Store
+/dscommerce/target/
