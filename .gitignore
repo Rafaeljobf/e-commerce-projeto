@@ -6,3 +6,5 @@
 *.trace.db
 .DS_Store
 /dscommerce/target/
+.postman
+postman
