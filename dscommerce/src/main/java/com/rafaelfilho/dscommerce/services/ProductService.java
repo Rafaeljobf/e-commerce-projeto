@@ -16,8 +16,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
-
 @Service
 public class ProductService {
 
@@ -78,5 +76,4 @@ public class ProductService {
             throw new DatabaseException("Falha de integridade referencial");
         }
     }
-
 }
