@@ -1,7 +1,9 @@
 package com.rafaelfilho.dscommerce.services;
 
+import com.rafaelfilho.dscommerce.dto.CategoryDTO;
 import com.rafaelfilho.dscommerce.dto.ProductDTO;
 import com.rafaelfilho.dscommerce.dto.ProductMinDTO;
+import com.rafaelfilho.dscommerce.entities.Category;
 import com.rafaelfilho.dscommerce.entities.Product;
 import com.rafaelfilho.dscommerce.repositories.ProductRepository;
 import com.rafaelfilho.dscommerce.services.exceptions.DatabaseException;
@@ -62,6 +64,13 @@ public class ProductService {
         entity.setDescription(dto.getDescription());
         entity.setImgUrl(dto.getImgUrl());
         entity.setPrice(dto.getPrice());
+
+        entity.getCategories().clear();
+        for (CategoryDTO catDto : dto.getCategories()) {
+            Category category = new Category();
+            category.setId(catDto.getId());
+            entity.getCategories().add(category);
+        }
     }
 
     @Transactional(propagation = Propagation.SUPPORTS)
