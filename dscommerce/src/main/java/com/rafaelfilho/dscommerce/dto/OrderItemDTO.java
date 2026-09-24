@@ -23,6 +23,8 @@ public class OrderItemDTO {
         quantity = entity.getQuantity();
     }
 
+    public OrderItemDTO() {}
+
     public Long getProductId() {
         return productId;
     }
