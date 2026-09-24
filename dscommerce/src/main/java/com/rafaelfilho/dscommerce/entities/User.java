@@ -42,7 +42,7 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -84,6 +84,15 @@ public class User implements UserDetails {
 
     public String getPassword() {
         return password;
+    }
+
+    public boolean hasRole(String roleName) {
+        for (Role role : roles) {
+            if (role.getAuthority().equals(roleName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -130,15 +139,6 @@ public class User implements UserDetails {
 
     public void addRole(Role role) {
         roles.add(role);
-    }
-
-    public boolean hasRole(String roleName) {
-        for (Role role : roles) {
-            if (role.getAuthority().equals(roleName)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     @Override
